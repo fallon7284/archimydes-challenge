@@ -1,68 +1,24 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Status
 
-In the project directory, you can run:
+The challenge is mostly finished in terms of functionality.  That said, there is plenty left unfinished in terms of styling, session persistence, and some navigation flow.
 
-### `yarn start`
+The gist laid out well more than 6-8 hours of work.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+In any case, what exists is this:
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Login
 
-### `yarn test`
+A user can login as either an Admin or a User role.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Admin
 
-### `yarn build`
+If logged in as an Admin, all stories are fetched from the backend and we navigate to /stories, to a table view.
+In this view, a user is able to sort by either ID or Complexity.  A user can toggle ascending or descending sort by clicking the same category multiple times.  A user can also filter results by type.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+In the table view, an admin user can click on any row in the table to select a single story and navigate to /stories/:id, an expanded view of all that user story's details.  In this single-story view, an admin user is provided two buttons to add a status to the story object.  The admit can select accept or reject, and doing so will navigate the user back to the list view, where accepted stories will be highlighted in green, and rejected stories in red.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## User
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+If logged in as a User, the user will be navigated first to the create story view where they will find a form to submit a new user story.  Fields will be validated and if not correct an error modal will open which can be clicked to close.  If fields validate successfully, a new story will be posted to the database, returned, and added to the user's story list in the redux store, and we navigate to the story table view.  This is the same view as the admin list, but shows only the user's own created stories, and we are not able to click the items to navigate to the detail view to change status.  A user is still able to sort and filter.
