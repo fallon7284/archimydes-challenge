@@ -1,0 +1,34 @@
+.login-form {
+  width: 50vw;
+  height: 40vh;
+  border: 2px solid grey;
+  background-color: grey;
+  border-radius: 8px;
+  transform: translate(25vw, 30vh);
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.title {
+  font-weight: bold;
+  font-size: 2em;
+  color: white;
+}
+
+input,
+button,
+textarea,
+#admin-select {
+  width: 40%;
+  min-height: 3vh;
+  border: 1px solid grey;
+  border-radius: 5px;
+}
+
+input::placeholder {
+  text-align: center;
+  font-weight: bold;
+}
